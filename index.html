@@ -9,311 +9,54 @@
         :root {
             --bg: #0d1117;
             --bg2: #161b22;
-            --bg3: #1c2333;
             --accent: #58a6ff;
             --accent2: #3fb950;
-            --accent3: #f78166;
             --text: #e6edf3;
             --muted: #8b949e;
             --border: #30363d;
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-        }
-
-        /* Nav */
-        nav {
-            background: rgba(22, 27, 34, 0.85);
-            backdrop-filter: blur(12px);
-            padding: 16px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav h1 {
-            font-family: 'Fira Code', monospace;
-            color: var(--accent);
-            font-size: 1.2em;
-        }
-
+        body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+        nav { background: rgba(22,27,34,0.85); backdrop-filter: blur(12px); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
+        nav h1 { font-family: 'Fira Code', monospace; color: var(--accent); font-size: 1.2em; }
         nav h1 span { color: var(--accent2); }
-
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 24px;
-            font-size: 0.95em;
-            transition: color 0.2s;
-        }
-
+        nav a { color: var(--muted); text-decoration: none; margin-left: 24px; transition: color 0.2s; }
         nav a:hover { color: var(--accent); }
-
-        /* Hero */
-        .hero {
-            text-align: center;
-            padding: 100px 20px 80px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 300px;
-            background: radial-gradient(ellipse, rgba(88,166,255,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-tag {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85em;
-            color: var(--accent2);
-            background: rgba(63, 185, 80, 0.1);
-            border: 1px solid rgba(63, 185, 80, 0.3);
-            padding: 4px 14px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 20px;
-            animation: fadeDown 0.6s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.2em;
-            color: var(--text);
-            font-weight: 700;
-            line-height: 1.2;
-            animation: fadeDown 0.7s ease;
-        }
-
+        .hero { text-align: center; padding: 100px 20px 80px; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(88,166,255,0.08) 0%, transparent 70%); pointer-events: none; }
+        .hero-tag { font-family: 'Fira Code', monospace; font-size: 0.85em; color: var(--accent2); background: rgba(63,185,80,0.1); border: 1px solid rgba(63,185,80,0.3); padding: 4px 14px; border-radius: 20px; display: inline-block; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.2em; color: var(--text); font-weight: 700; }
         .hero h1 span { color: var(--accent); }
-
-        .hero p {
-            color: var(--muted);
-            margin-top: 14px;
-            font-size: 1.1em;
-            animation: fadeDown 0.8s ease;
-        }
-
-        .btn {
-            display: inline-block;
-            margin-top: 28px;
-            padding: 12px 30px;
-            background: var(--accent);
-            color: var(--bg);
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95em;
-            transition: transform 0.2s, box-shadow 0.2s;
-            animation: fadeDown 0.9s ease;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(88,166,255,0.3);
-        }
-
-        /* Sections */
-        section {
-            padding: 70px 40px;
-            max-width: 960px;
-            margin: auto;
-        }
-
-        .section-title {
-            font-family: 'Fira Code', monospace;
-            color: var(--accent);
-            margin-bottom: 30px;
-            font-size: 1.6em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-            margin-left: 10px;
-        }
-
-        /* About */
-        .about p {
-            color: var(--muted);
-            line-height: 1.9;
-            font-size: 1.05em;
-            max-width: 650px;
-        }
-
-        /* Skills */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            font-family: 'Fira Code', monospace;
-            background: var(--bg2);
-            padding: 8px 18px;
-            border-radius: 6px;
-            color: var(--accent);
-            border: 1px solid var(--border);
-            font-size: 0.9em;
-            transition: border-color 0.2s, transform 0.2s;
-        }
-
-        .skill:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Projects */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background: var(--bg2);
-            padding: 24px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: var(--card-color, var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.3s;
-            transform-origin: left;
-        }
-
+        .hero p { color: var(--muted); margin-top: 14px; font-size: 1.1em; }
+        .btn { display: inline-block; margin-top: 28px; padding: 12px 30px; background: var(--accent); color: var(--bg); border-radius: 8px; text-decoration: none; font-weight: 700; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(88,166,255,0.3); }
+        section { padding: 70px 40px; max-width: 960px; margin: auto; }
+        .section-title { font-family: 'Fira Code', monospace; color: var(--accent); margin-bottom: 30px; font-size: 1.6em; display: flex; align-items: center; gap: 10px; }
+        .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); margin-left: 10px; }
+        .about p { color: var(--muted); line-height: 1.9; font-size: 1.05em; }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill { font-family: 'Fira Code', monospace; background: var(--bg2); padding: 8px 18px; border-radius: 6px; color: var(--accent); border: 1px solid var(--border); font-size: 0.9em; transition: border-color 0.2s, transform 0.2s; }
+        .skill:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .project-card { background: var(--bg2); padding: 24px; border-radius: 12px; border: 1px solid var(--border); transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s; position: relative; overflow: hidden; }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--card-color, var(--accent)); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
         .project-card:hover::before { transform: scaleX(1); }
-
-        .project-card:hover {
-            border-color: var(--card-color, var(--accent));
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-        }
-
+        .project-card:hover { border-color: var(--card-color, var(--accent)); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
         .project-card:nth-child(1) { --card-color: #58a6ff; }
         .project-card:nth-child(2) { --card-color: #3fb950; }
         .project-card:nth-child(3) { --card-color: #f78166; }
-
-        .project-icon {
-            font-size: 2em;
-            margin-bottom: 14px;
-        }
-
-        .project-card h3 {
-            color: var(--text);
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .project-card p {
-            color: var(--muted);
-            font-size: 0.9em;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 18px;
-        }
-
-        .tag {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.75em;
-            padding: 3px 10px;
-            border-radius: 4px;
-            background: rgba(88,166,255,0.1);
-            color: var(--accent);
-            border: 1px solid rgba(88,166,255,0.2);
-        }
-
-        .project-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .project-links a {
-            font-size: 0.85em;
-            color: var(--muted);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.2s;
-        }
-
+        .project-icon { font-size: 2em; margin-bottom: 14px; }
+        .project-card h3 { color: var(--text); margin-bottom: 10px; font-size: 1.1em; }
+        .project-card p { color: var(--muted); font-size: 0.9em; line-height: 1.7; margin-bottom: 16px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+        .tag { font-family: 'Fira Code', monospace; font-size: 0.75em; padding: 3px 10px; border-radius: 4px; background: rgba(88,166,255,0.1); color: var(--accent); border: 1px solid rgba(88,166,255,0.2); }
+        .project-links { display: flex; gap: 12px; }
+        .project-links a { font-size: 0.85em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
         .project-links a:hover { color: var(--accent); }
-
-        /* Contact */
-        .contact-links {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            background: var(--bg2);
-            padding: 12px 24px;
-            border-radius: 8px;
-            color: var(--accent);
-            text-decoration: none;
-            border: 1px solid var(--border);
-            font-size: 0.95em;
-            transition: all 0.2s;
-        }
-
-        .contact-links a:hover {
-            background: var(--accent);
-            color: var(--bg);
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 24px;
-            color: var(--muted);
-            border-top: 1px solid var(--border);
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85em;
-        }
-
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .contact-links a { background: var(--bg2); padding: 12px 24px; border-radius: 8px; color: var(--accent); text-decoration: none; border: 1px solid var(--border); transition: all 0.2s; }
+        .contact-links a:hover { background: var(--accent); color: var(--bg); transform: translateY(-2px); }
+        footer { text-align: center; padding: 24px; color: var(--muted); border-top: 1px solid var(--border); font-family: 'Fira Code', monospace; font-size: 0.85em; }
         @media (max-width: 600px) {
             nav { padding: 14px 20px; }
             .hero h1 { font-size: 2em; }
@@ -350,20 +93,21 @@
         <h2 class="section-title">🛠 Skills</h2>
         <div class="skills-grid">
             <span class="skill">HTML5</span>
-            <span class="skill">CSS3</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">SOL</span>
-            <span class="skill">GitHub</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JAVASCRIPT</span>
+            <span class="skill">SQL</span>
+            <span class="skill">RESPONSIVE DESIGN</span>
+            <span class="skill">GITHUBb</span>
             <span class="skill">JAVA</span>
-            <span class="skill">SpringBoot(Basics)</span>
-            <span class="skill">React</span>
+            <span class="skill">SPRINGBOOT(Basics)</span>
+
+
         </div>
     </section>
 
     <section id="projects">
         <h2 class="section-title">🚀 Projects</h2>
         <div class="projects-grid">
-
             <div class="project-card">
                 <div class="project-icon">🌐</div>
                 <h3>Portfolio Website</h3>
@@ -378,7 +122,6 @@
                     <a href="https://github.com/preethaManogaran-M/portfolio-website" target="_blank">⌥ Source Code</a>
                 </div>
             </div>
-
             <div class="project-card">
                 <div class="project-icon">🧮</div>
                 <h3>Calculator App</h3>
@@ -392,11 +135,10 @@
                     <a href="#">🔗 Coming Soon</a>
                 </div>
             </div>
-
             <div class="project-card">
                 <div class="project-icon">✅</div>
                 <h3>To-Do List App</h3>
-                <p>A task management app to add, complete and delete tasks. Built with HTML, CSS and JavaScript with local storage.</p>
+                <p>A task management app to add, complete and delete tasks. Built with HTML, CSS and JavaScript.</p>
                 <div class="project-tags">
                     <span class="tag">HTML5</span>
                     <span class="tag">CSS3</span>
@@ -406,7 +148,6 @@
                     <a href="#">🔗 Coming Soon</a>
                 </div>
             </div>
-
         </div>
     </section>
 
